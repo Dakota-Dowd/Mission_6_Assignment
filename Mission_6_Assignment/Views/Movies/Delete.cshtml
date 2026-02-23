@@ -1,0 +1,10 @@
+﻿@page
+@model Mission_6_Assignment.Views.Movies.DeleteModel
+
+<h2>Delete Movie</h2>
+<p>Are you sure you want to delete <strong>@Model.Movie.Title</strong>?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="/Movies/Index" class="btn btn-secondary">Cancel</a>
+</form>
