@@ -1,0 +1,56 @@
+@page
+@model Mission_6_Assignment.Views.Movies.EntryModel
+@{
+    ViewData["Title"] = "Movie Entry";
+}
+
+<h2>Add New Movie</h2>      
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Movie.Title"></label>
+        <input asp-for="Movie.Title" class="form-control" />
+        <span asp-validation-for="Movie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.CategoryId">Category</label>
+        <select asp-for="Movie.CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories, "CategoryId", "CategoryName"))"></select>
+        <span asp-validation-for="Movie.CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Year"></label>
+        <input asp-for="Movie.Year" class="form-control" />
+        <span asp-validation-for="Movie.Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Director"></label>
+        <input asp-for="Movie.Director" class="form-control" />
+        <span asp-validation-for="Movie.Director" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Rating"></label>
+        <input asp-for="Movie.Rating" class="form-control" />
+        <span asp-validation-for="Movie.Rating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Edited"></label>
+        <input asp-for="Movie.Edited" class="form-control" />
+        <span asp-validation-for="Movie.Edited" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.CopiedToPlex"></label>
+        <input asp-for="Movie.CopiedToPlex" class="form-control" />
+        <span asp-validation-for="Movie.CopiedToPlex" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.LentTo"></label>
+        <input asp-for="Movie.LentTo" class="form-control" />
+        <span asp-validation-for="Movie.LentTo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Notes"></label>
+        <input asp-for="Movie.Notes" class="form-control" />
+        <span asp-validation-for="Movie.Notes" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Add Movie</button>
+    <a asp-page="/Movies/Index" class="btn btn-secondary">Cancel</a>
+</form>
