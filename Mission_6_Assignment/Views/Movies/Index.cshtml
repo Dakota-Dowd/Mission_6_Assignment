@@ -1,0 +1,42 @@
+﻿@page
+@model Mission_6_Assignment.Views.Movies.IndexModel
+@{
+}
+
+<h2>Movie List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>Copied To Plex</th>
+            <th>Lent To</th>
+            <th>Notes</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var movie in Model.Movies)
+    {
+        <tr>
+            <td>@movie.Title</td>
+            <td>@movie.Category?.CategoryName</td>
+            <td>@movie.Year</td>
+            <td>@movie.Director</td>
+            <td>@movie.Rating</td>
+            <td>@(movie.Edited ? "Yes" : "No")</td>
+            <td>@(movie.CopiedToPlex ? "Yes" : "No")</td>
+            <td>@movie.LentTo</td>
+            <td>@movie.Notes</td>
+            <td>
+                <a asp-page="/Movies/Edit" asp-route-id="@movie.MovieId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp--page="/Movies/Delete" asp-route-id="@movie.MovieId" class="btn btn-sm btn-danger"></a>
+            </td>
+           </tr>
+       }
+       </tbody>
+   </table>
